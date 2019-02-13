@@ -38,7 +38,7 @@ Test the endpoints using **POSTMAN** or **INSOMIA REST Client**.
 
 **Raise Invoice**
 <br> http://localhost:3000/invoice
-<br> Use the POST http request in this function as we are pushing data
+<br> Use the **POST http request** in this function as we are pushing data
 <br> Select **Form URL Encoded** as a structure.
 
 **Parameters**
@@ -63,7 +63,7 @@ Test the endpoints using **POSTMAN** or **INSOMIA REST Client**.
 
 **Goods Received**
 <br> http://localhost:3000/invoice
-<br> Use the PUT http request in this function as we are modifying a data
+<br> Use the **PUT http request** in this function as we are modifying a data
 <br> Select **Form URL Encoded** as a structure.
 
 **Parameters**
@@ -72,7 +72,7 @@ Test the endpoints using **POSTMAN** or **INSOMIA REST Client**.
 
 **Bank Payment to Supplier**
 <br> http://localhost:3000/invoice
-<br> Use the PUT http request in this function as we are modifying a data
+<br> Use the **PUT http request** in this function as we are modifying a data
 <br> Select **Form URL Encoded** as a structure.
 
 **Parameters**
@@ -81,7 +81,7 @@ Test the endpoints using **POSTMAN** or **INSOMIA REST Client**.
 
 **OEM Repays to Bank**
 <br> http://localhost:3000/invoice
-<br> Use the PUT http request in this function as we are modifying a data
+<br> Use the **PUT http request** in this function as we are modifying a data
 <br> Select **Form URL Encoded** as a structure.
 
 **Parameters**
