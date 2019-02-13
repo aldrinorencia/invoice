@@ -60,13 +60,6 @@ Test the endpoints using **POSTMAN** or **INSOMIA REST Client**.
 - repaid
 - repaymentamount
 
-**NOTE: gr , ispaid , paidamount , repaid , repaymentamount default values are as follows N , N , 0 , N , 0**
-<br> gr = N 
-<br> ispaid = N 
-<br> paidamount = 0 
-<br> repaid = N 
-<br> repaymentamount = 0 
-
 **Goods Received**
 <br> http://localhost:3000/invoice
 <br> Use the **PUT http request** in this function as we are modifying a data
