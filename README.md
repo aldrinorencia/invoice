@@ -10,9 +10,9 @@
 Create a folder name it **fabric-sample** then create a folder name it **invoice** under **fabric-sample**
 then copy all files under **invoice** in this repository then paste it to the directory.
 #### Output:
-```**fabric-sample/invoice/**```
-```app.js```
-```enrollAdmin.js```
+```fabric-sample/invoice/```
+<br>   ```app.js```
+<br>   ```enrollAdmin.js```
 ```package.json```
 ```registerUser.js```
 ```startFabric.sh```
