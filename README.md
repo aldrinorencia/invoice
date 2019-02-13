@@ -7,18 +7,18 @@ Create a folder name it **fabric-sample** then create a folder name it **invoice
 then copy all files under **invoice** in this repository then paste it to the directory.
 #### Output:
 **fabric-sample/invoice/**
--------------------- app.js
--------------------- enrollAdmin.js
--------------------- package.json
--------------------- registerUser.js
--------------------- startFabric.sh
+- app.js
+- enrollAdmin.js
+- package.json
+- registerUser.js
+- startFabric.sh
 
 ### Step 2
 Create again a folder under **fabric-sample** name it **go**
 then copy the file under go in this repository then paste it to the directory.
 #### Output:
 **fabric-sample/go/**
----------------- invoice.go
+- invoice.go
 
 ### Step 3
 Open terminal then change directory to **fabric-sample/invoice/**
@@ -54,7 +54,7 @@ Select **Form URL Encoded** as a structure
 - repaid
 - repaymentamount
 
-**NOTE: gr , ispaid , paidamount , repaid , repaymentamount default values are as follows N , N , 0 , N , 0
+**NOTE: gr , ispaid , paidamount , repaid , repaymentamount default values are as follows N , N , 0 , N , 0**
 gr = N 
 ispaid = N 
 paidamount = 0 
