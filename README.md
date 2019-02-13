@@ -29,7 +29,7 @@ Open terminal then change directory to **fabric-sample/invoice/**
 <br> Then run **node app.js**
 
 ### Step 4
-Test the endpoints using **POSTMAN** or **INSOMIA REST Client.
+Test the endpoints using **POSTMAN** or **INSOMIA REST Client**.
 
 **Testing Endpoints**
 Display All Invoices
@@ -55,11 +55,11 @@ Select **Form URL Encoded** as a structure
 - repaymentamount
 
 **NOTE: gr , ispaid , paidamount , repaid , repaymentamount default values are as follows N , N , 0 , N , 0**
-gr = N 
-ispaid = N 
-paidamount = 0 
-repaid = N 
-repaymentamount = 0 
+<br> gr = N 
+<br> ispaid = N 
+<br> paidamount = 0 
+<br> repaid = N 
+<br> repaymentamount = 0 
 
 **Goods Received**
 http://localhost:3000/invoice
