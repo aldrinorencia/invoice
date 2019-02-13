@@ -17,7 +17,7 @@ then copy all files under **invoice** in this repository then paste it to the di
 <br> `package.json`
 <br> `registerUser.js`
 <br> `startFabric.sh`
- `
+ 
 
 ### Step 2
 Create again a folder under **fabric-sample** name it **go**
@@ -28,11 +28,11 @@ then copy the file under **go** in this repository then paste it to the director
 
 ### Step 3
 Open terminal then change directory to **fabric-sample/invoice/**
-<br> Then run ```./startFabric.sh```
-<br> Then run ```npm install```
-<br> Then run ```node enrollAdmin.js```
-<br> Then run ```node registerUser.js```
-<br> Then run ```node app.js```
+<br> Then run `./startFabric.sh`
+<br> Then run `npm install`
+<br> Then run `node enrollAdmin.js`
+<br> Then run `node registerUser.js`
+<br> Then run `node app.js`
 
 ### Step 4
 Test the endpoints using **POSTMAN** or **INSOMIA REST Client**.
@@ -76,7 +76,7 @@ Test the endpoints using **POSTMAN** or **INSOMIA REST Client**.
 - invoiceid
 - gr
 
-**Bank Payment to Supplier**
+**Paid to Supplier**
 <br> http://localhost:3000/invoice
 <br> Use the **PUT http request** in this function as we are modifying a data
 <br> Select **Form URL Encoded** as a structure.
@@ -85,7 +85,7 @@ Test the endpoints using **POSTMAN** or **INSOMIA REST Client**.
 - invoiceid
 - ispaid
 
-**OEM Repays to Bank**
+**Repaid to Bank**
 <br> http://localhost:3000/invoice
 <br> Use the **PUT http request** in this function as we are modifying a data
 <br> Select **Form URL Encoded** as a structure.
