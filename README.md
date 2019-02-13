@@ -27,12 +27,12 @@ then copy the file under **go** in this repository then paste it to the director
 <br> `invoice.go`
 
 ### Step 3
-Open terminal then change directory to **fabric-sample/invoice/**
-<br> Then run `./startFabric.sh`
-<br> Then run `npm install`
-<br> Then run `node enrollAdmin.js`
-<br> Then run `node registerUser.js`
-<br> Then run `node app.js`
+Open terminal then change directory to **fabric-sample/invoice/** and run the following commands.
+<br> `./startFabric.sh`
+<br> `npm install`
+<br> `node enrollAdmin.js`
+<br> `node registerUser.js`
+<br> `node app.js`
 
 ### Step 4
 Test the endpoints using **POSTMAN** or **INSOMIA REST Client**.
