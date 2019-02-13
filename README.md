@@ -13,11 +13,11 @@ then copy all files under **invoice** in this repository then paste it to the di
 #### Output:
 ```fabric-sample/invoice/```
 `
-<br> app.js
-<br> enrollAdmin.js
-<br> package.json
-<br> registerUser.js
-<br> startFabric.sh
+app.js
+enrollAdmin.js
+package.json
+registerUser.js
+startFabric.sh
  `
 
 ### Step 2
