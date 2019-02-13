@@ -15,18 +15,18 @@ then copy all files under **invoice** in this repository then paste it to the di
 
 ### Step 2
 Create again a folder under **fabric-sample** name it **go**
-then copy the file under go in this repository then paste it to the directory.
+then copy the file under **go** in this repository then paste it to the directory.
 #### Output:
 **fabric-sample/go/**
 - invoice.go
 
 ### Step 3
 Open terminal then change directory to **fabric-sample/invoice/**
-Then run **./startFabric.sh**
-Then run **npm install**
-Then run **node enrollAdmin.js**
-Then run **node registerUser.js**
-Then run **node app.js**
+<br> Then run **./startFabric.sh**
+<br> Then run **npm install**
+<br> Then run **node enrollAdmin.js**
+<br> Then run **node registerUser.js**
+<br> Then run **node app.js**
 
 ### Step 4
 Test the endpoints using **POSTMAN** or **INSOMIA REST Client.
