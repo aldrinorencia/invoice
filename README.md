@@ -1,4 +1,8 @@
-# invoice
+# Invoice Hyperledger Application
+
+## Development Environment:
+**Go version:** go version go1.11.5 linux/amd64
+**Operating System:** Ubuntu 18.04 LTS
 
 ## Setup Network
 
@@ -6,12 +10,12 @@
 Create a folder name it **fabric-sample** then create a folder name it **invoice** under **fabric-sample**
 then copy all files under **invoice** in this repository then paste it to the directory.
 #### Output:
-**fabric-sample/invoice/**
-- app.js
-- enrollAdmin.js
-- package.json
-- registerUser.js
-- startFabric.sh
+```**fabric-sample/invoice/**```
+```app.js```
+```enrollAdmin.js```
+```package.json```
+```registerUser.js```
+```startFabric.sh```
 
 ### Step 2
 Create again a folder under **fabric-sample** name it **go**
