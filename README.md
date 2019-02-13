@@ -2,6 +2,7 @@
 
 ## Development Environment:
 **Go version:** go version go1.11.5 linux/amd64
+<br>
 **Operating System:** Ubuntu 18.04 LTS
 
 ## Setup Network
@@ -11,11 +12,13 @@ Create a folder name it **fabric-sample** then create a folder name it **invoice
 then copy all files under **invoice** in this repository then paste it to the directory.
 #### Output:
 ```fabric-sample/invoice/```
-<br>```app.js```
-<br>```enrollAdmin.js```
-<br>```package.json```
-<br>```registerUser.js```
-<br>```startFabric.sh```
+`
+<br> app.js
+<br> enrollAdmin.js
+<br> package.json
+<br> registerUser.js
+<br> startFabric.sh
+ `
 
 ### Step 2
 Create again a folder under **fabric-sample** name it **go**
