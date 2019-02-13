@@ -11,21 +11,20 @@
 Create a folder name it **fabric-sample** then create a folder name it **invoice** under **fabric-sample**
 then copy all files under **invoice** in this repository then paste it to the directory.
 #### Output:
-```fabric-sample/invoice/```
-`
-app.js
-enrollAdmin.js
-package.json
-registerUser.js
-startFabric.sh
+**fabric-sample/invoice/**
+<br> `app.js`
+<br> `enrollAdmin.js`
+<br> `package.json`
+<br> `registerUser.js`
+<br> `startFabric.sh`
  `
 
 ### Step 2
 Create again a folder under **fabric-sample** name it **go**
 then copy the file under **go** in this repository then paste it to the directory.
 #### Output:
-```fabric-sample/go/```
-<br>```invoice.go```
+**fabric-sample/go/**
+<br> `invoice.go`
 
 ### Step 3
 Open terminal then change directory to **fabric-sample/invoice/**
