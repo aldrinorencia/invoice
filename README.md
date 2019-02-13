@@ -32,16 +32,14 @@ Open terminal then change directory to **fabric-sample/invoice/**
 Test the endpoints using **POSTMAN** or **INSOMIA REST Client**.
 
 **Testing Endpoints**
-<br>
-Display All Invoices
-http://localhost:3000/
-Use the **GET http request** in this function as we are getting data
+<br> Display All Invoices
+<br> http://localhost:3000/
+<br> Use the **GET http request** in this function as we are getting data.
 
 **Raise Invoice**
-<br>
-http://localhost:3000/invoice
-Use the POST http request in this function as we are pushing data
-Select **Form URL Encoded** as a structure
+<br> http://localhost:3000/invoice
+<br> Use the POST http request in this function as we are pushing data
+<br> Select **Form URL Encoded** as a structure.
 
 **Parameters**
 - invoiceid
@@ -64,30 +62,27 @@ Select **Form URL Encoded** as a structure
 <br> repaymentamount = 0 
 
 **Goods Received**
-<br>
-http://localhost:3000/invoice
-Use the PUT http request in this function as we are modifying a data
-Select **Form URL Encoded** as a structure
+<br> http://localhost:3000/invoice
+<br> Use the PUT http request in this function as we are modifying a data
+<br> Select **Form URL Encoded** as a structure.
 
 **Parameters**
 - invoiceid
 - gr
 
 **Bank Payment to Supplier**
-<br>
-http://localhost:3000/invoice
-Use the PUT http request in this function as we are modifying a data
-Select **Form URL Encoded** as a structure
+<br> http://localhost:3000/invoice
+<br> Use the PUT http request in this function as we are modifying a data
+<br> Select **Form URL Encoded** as a structure.
 
 **Parameters**
 - invoiceid
 - ispaid
 
 **OEM Repays to Bank**
-<br>
-http://localhost:3000/invoice
-Use the PUT http request in this function as we are modifying a data
-Select **Form URL Encoded** as a structure
+<br> http://localhost:3000/invoice
+<br> Use the PUT http request in this function as we are modifying a data
+<br> Select **Form URL Encoded** as a structure.
 
 **Parameters**
 - invoiceid
