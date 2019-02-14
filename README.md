@@ -10,8 +10,8 @@
 ### Step 1
 Create a folder name it **fabric-sample** then create a folder name it **invoice** under **fabric-sample**
 then copy all files under **invoice** in this repository then paste it to the directory.
-#### Output:
-**fabric-sample/invoice/**
+#### Output in the terminal:
+**fabric-sample/invoice/ls/**
 <br> `app.js`
 <br> `enrollAdmin.js`
 <br> `package.json`
@@ -22,8 +22,8 @@ then copy all files under **invoice** in this repository then paste it to the di
 ### Step 2
 Create again a folder under **fabric-sample** name it **go**
 then copy the file under **go** in this repository then paste it to the directory.
-#### Output:
-**fabric-sample/go/**
+#### Output in the terminal:
+**fabric-sample/go/ls/**
 <br> `invoice.go`
 
 ### Step 3
