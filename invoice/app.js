@@ -45,14 +45,21 @@ var crypto_store = Fabric_Client.newCryptoKeyStore({path: store_path});
 crypto_suite.setCryptoKeyStore(crypto_store);
 fabric_client.setCryptoSuite(crypto_suite);
 
+
+var sUser = req.body.username;
+console.log(sUser);
 // get the enrolled user from persistence, this user will sign all requests
-return fabric_client.getUserContext('user1', true);
+return fabric_client.getUserContext(sUser, true);
 }).then((user_from_store) => {
+  console.log(user_from_store);
 if (user_from_store && user_from_store.isEnrolled()) {
-console.log('Successfully loaded user1 from persistence');
+console.log("Successfully loaded from persistence");
 member_user = user_from_store;
+console.log(member_user);
 } else {
-throw new Error('Failed to get user1.... run registerUser.js');
+  var sUser = req.body.username;
+  res.json(sUser + " is not registered to do this transaction");
+throw new Error( sUser + " is not registered to do this transaction");
 }
 
 // get a transaction id object based on the current user assigned to fabric client
@@ -76,54 +83,117 @@ var gr = req.body.gr;
 var ispaid = req.body.ispaid;
 var paidamount = req.body.paidamount;
 var repaid = req.body.repaid;
-var repaymentamount = req.body.paidamount;
+var repaymentamount = req.body.repaymentamount;
 
 raiseinvoice.push(invoiceid);
 if (req.method == "POST")
 {
-  request.fcn='raiseInvoice';
-  raiseinvoice.push(invoicenum);
-  raiseinvoice.push(billedto);
-  raiseinvoice.push(invoicedate);
-  raiseinvoice.push(invoiceamount); 
-  raiseinvoice.push(itemdescription);
-  raiseinvoice.push(gr); 
-  raiseinvoice.push(ispaid);
-  raiseinvoice.push(paidamount); 
-  raiseinvoice.push(repaid);
-  raiseinvoice.push(repaymentamount); 
+  var sUser = req.body.username;
+
+  // IBM is our Supplier
+  // This should not let other registered users to do this transaction
+  if(sUser != "IBM" ){
+    
+    res.json(sUser + " is not allowed to do this transaction");
+    throw new Error(sUser + " is not allowed to do this transaction");
+  }
+
+  else{
+    // gr = 'false';
+    // ispaid = 'false';
+    // paidamount = '0';
+    // repaid = 'false';
+    // repaymentamount = '0';
+
+    request.fcn='raiseInvoice';
+    raiseinvoice.push(invoicenum);
+    raiseinvoice.push(billedto);
+    raiseinvoice.push(invoicedate);
+    raiseinvoice.push(invoiceamount); 
+    raiseinvoice.push(itemdescription);
+    // raiseinvoice.push(gr); 
+    // raiseinvoice.push(ispaid);
+    // raiseinvoice.push(paidamount); 
+    // raiseinvoice.push(repaid);
+    // raiseinvoice.push(repaymentamount); 
+  }
 }
 
 else if(req.method == "PUT")
 {
-    if(gr)    
+    if(gr)
     {
-        //UPDATE state if goods are received
-        //DEFAULT state is No
-        request.fcn= 'receivedGoods',
-        raiseinvoice.push(gr);
+        // Lotus is our OEM
+        // This should not let other registered users to do this transaction
+          var sUser = req.body.username;
+
+          if(sUser != "Lotus"){
+            res.json(sUser + " is not allowed to do this transaction");
+            throw new Error(sUser + " is not allowed to do this transaction");
+          }
+
+          else{
+            //UPDATE state if goods are received
+            //DEFAULT state is No
+            request.fcn= 'receivedGoods',
+            raiseinvoice.push(gr);
+          }
     }
     
-    else if(ispaid)
+    else if(paidamount)
     {
-        //UPDATE state if banks already paid the supplier
-        //DEFAULT state is No
-        request.fcn= 'paymentToSupplier',
-        raiseinvoice.push(ispaid);
+          var sUser = req.body.username;
+
+          // Unionbank is our bank
+          // This should not let other registered users to do this transaction
+          if(sUser != "Unionbank"){
+            res.json(sUser + " is not allowed to do this transaction");
+            throw new Error(sUser + " is not allowed to do this transaction");
+          }
+
+          else{
+            //UPDATE state if banks already paid the supplier
+            //DEFAULT state is No
+            request.fcn= 'paymentToSupplier',
+            //ispaid = 'Y';
+            raiseinvoice.push(paidamount);
+            //raiseinvoice.push(ispaid);
+          }
     }
 
-    else if(repaid)
+    else if(repaymentamount)
     {
-        //UPDATE state if OEM already repaid the bank
-        //DEFAULT state is No
-        request.fcn= 'paymentToBank',
-        raiseinvoice.push(repaid);
+        var sUser = req.body.username;
+
+
+        if(sUser != "Lotus"){
+          // Lotus and Tivoli is our OEM
+          // This should not let other registered users to do this transaction
+          res.json(sUser + " is not allowed to do this transaction");
+          throw new Error(sUser + " is not allowed to do this transaction");
+        }
+
+        else{
+          
+          //UPDATE state if OEM already repaid the bank
+          //DEFAULT state is No
+          request.fcn= 'paymentToBank',
+          //repaid = "Y";
+          raiseinvoice.push(repaymentamount);
+          //raiseinvoice.push(repaid);
+        }
     }
 }
 
-
 request.args=raiseinvoice;
 console.log(request);
+
+// // return 
+res.json({
+  Function: request.fcn,
+  Inputs: request.args,
+  Result: "Success"
+});
 
 // send the transaction proposal to the peers
 return channel.sendTransactionProposal(request);
@@ -212,12 +282,12 @@ console.error('Failed to order the transaction. Error code: ' + results[0].statu
 
 if(results && results[1] && results[1].event_status === 'VALID') {
 console.log('Successfully committed the change to the ledger by the peer');
-                res.json({'result': 'success'});
+                // res.json({'result': 'success'});
 } else {
 console.log('Transaction failed to be committed to the ledger due to ::'+results[1].event_status);
 }
 }).catch((err) => {
-console.error('Failed to invoke successfully :: ' + err);
+console.error('Failed to invoke :: ' + err);
 });
 
 
@@ -240,13 +310,19 @@ crypto_suite.setCryptoKeyStore(crypto_store);
 fabric_client.setCryptoSuite(crypto_suite);
 
 // get the enrolled user from persistence, this user will sign all requests
-return fabric_client.getUserContext('user1', true);
+var sUser = req.body.username;
+console.log(sUser);
+
+return fabric_client.getUserContext(sUser, true);
 }).then((user_from_store) => {
+  console.log(user_from_store);
 if (user_from_store && user_from_store.isEnrolled()) {
-console.log('Successfully loaded user1 from persistence');
+//console.log("Successfully loaded " + sUser +" from persistence");
 member_user = user_from_store;
 } else {
-throw new Error('Failed to get user1.... run registerUser.js');
+  var sUser = req.body.username;
+  res.json(sUser + " is not registered to do this transaction");
+throw new Error(sUser + "  is not registered to do this transaction");
 }
 
 // displayAllInvoices chaincode function - requires no arguments , ex: args: [''],
@@ -260,6 +336,7 @@ args: ['']
 
 var ar = [];
 var attr = req.query.attr;
+var invoice = req.query.invoice;
 
 if (attr){
   
@@ -267,6 +344,15 @@ if (attr){
   request.fcn='getUser';
   request.args = ar;
 }
+
+else if (invoice)
+{
+  ar.push(invoice);
+  request.fcn='getInvoiceAuditHistory';
+  request.args = ar;
+}
+
+
 
 
 // send the query proposal to the peer
@@ -291,6 +377,7 @@ console.error('Failed to query successfully :: ' + err);
 
 app.get('/block', function (req, res) {
 
+  var sUser = req.body.username;
   // create the key value store as defined in the fabric-client/config/default.json 'key-value-store' setting
   Fabric_Client.newDefaultKeyValueStore({ path: store_path
   }).then((state_store) => {
@@ -304,13 +391,14 @@ app.get('/block', function (req, res) {
   fabric_client.setCryptoSuite(crypto_suite);
   
   // get the enrolled user from persistence, this user will sign all requests
-  return fabric_client.getUserContext('user1', true);
+  return fabric_client.getUserContext(sUser, true);
   }).then((user_from_store) => {
+    console.log(user_from_store);
   if (user_from_store && user_from_store.isEnrolled()) {
-  console.log('Successfully loaded user1 from persistence');
+  console.log("Successfully loaded" + sUser + "from persistence");
   member_user = user_from_store;
   } else {
-  throw new Error('Failed to get user1.... run registerUser.js');
+  throw new Error("Failed to get run registerUser.js");
   }
 
   
@@ -331,8 +419,4 @@ app.get('/block', function (req, res) {
                 return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16));
            });
  }
-  
-
-
-  
   
